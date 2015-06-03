@@ -11,10 +11,10 @@ The purpose of this repo it to provide the code (and perhaps in the future the m
 
 ## Setup
 1. attach the stepper motor to the arduino as shown in the image below
-[setup]
+![rate table fritzing sketch](https://cloud.githubusercontent.com/assets/976973/7950538/21baac68-096a-11e5-8f95-15519e2af054.png)
 2. upload the provided arduino sketch
 3. attach a platform to the stepper motor faching up (this is where the sensor should be placed)
-[setup]: https://lh6.googleusercontent.com/b3q-5CNIKd5WE5p6rhvGC0KafwZcp87V6rp7rlrp2O0DbmyDMq-cXmJ1xHu1gQcKApgpeYNSXj1odwU=w1342-h487
+
 At this point, you should have a table that can rotate with some speed. You should further be able to increase the speed by entering ‘w’ and decrease the speed by entering ‘s’.
 
 ## Running Tests
@@ -26,3 +26,15 @@ At this point, you should have a table that can rotate with some speed. You shou
 [XBee this may be helpful]: https://learn.sparkfun.com/tutorials/exploring-xbees-and-xctu
 
 ## Using writetocsv
+This script uses python2 to collect data from your computer's serial port and write it to a csv file in the same directory that you are running the script from. It takes the command line arguments:
+
+` --port `
+This is the port that the arduino is attached to. By default is /dev/ttyACM0 which will most likely be the right port if you are using Linux.
+
+` --duration`
+This is the length of time in seconds that the script will collect samples.
+
+For example
+```
+python2 writetocsv.py --port /dev/ttyACM0 --duration 100
+```
